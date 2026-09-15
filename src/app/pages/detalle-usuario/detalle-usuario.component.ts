@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, input, inject } from '@angular/core';
+import { ServiceUsersService } from '../../services/service-users.service';
+
 
 @Component({
   imports: [],
@@ -7,6 +9,11 @@ import { Component } from '@angular/core';
   templateUrl: './detalle-usuario.component.html',
 })
 export class DetalleUsuarioComponent {
+  id = input.required<string>();
+  private usersService = inject(ServiceUsersService);
+  usuario = this.usersService.selectedUser;
 
-  
+  ngOnInit(): void {
+    this.usersService.getUserById(this.id());
+  }
 }
