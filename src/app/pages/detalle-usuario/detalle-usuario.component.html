@@ -1,1 +1,33 @@
-<p>detalle-usuario works!</p>
+<main class="user-detail container py-4">
+  <article class="user-detail__card">
+    <div class="user-detail__image-wrapper">
+      <img
+        class="user-detail__image"
+        src="https://i.pravatar.cc/300?img=12"
+        alt="Fotografía del usuario"
+      />
+    </div>
+
+    <div class="user-detail__content">
+      <h1>Nombre del usuario</h1>
+      <h2>Apellido del usuario</h2>
+
+      <dl class="user-detail__data">
+        <div>
+          <dt>Nombre Usuario:</dt>
+          <dd>username</dd>
+        </div>
+        <div>
+          <dt>Email:</dt>
+          <dd>email.gmail.com</dd>
+        </div>
+      </dl>
+
+      <div class="user-detail__actions" aria-label="Acciones del usuario">
+        <button type="button">Eliminar</button>
+        <a href="/formulario-usuario">Actualizar</a>
+        <a href="/home">Volver al listado</a>
+      </div>
+    </div>
+  </article>
+</main>
