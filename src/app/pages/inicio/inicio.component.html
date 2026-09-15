@@ -19,10 +19,10 @@
           </div>
 
           <div class="card-actions d-flex justify-content-around border-top w-100 mt-auto pt-2">
-            <button class="btn btn-link text-secondary p-0" type="button" aria-label="Ver detalle">
+            <a class="btn btn-link text-secondary p-0" [routerLink]="['/detalle-usuario', user.id]" aria-label="Ver detalle">
               <span aria-hidden="true">⌕</span>
               <small>Ver detalle</small>
-            </button>
+            </a>
             <button
               class="btn btn-link text-secondary p-0"
               type="button"

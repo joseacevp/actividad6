@@ -1,8 +1,9 @@
 import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { ServiceUsersService } from '../../services/service-users.service';
 
 @Component({
-  imports: [],
+  imports: [RouterLink],
   selector: 'app-inicio',
   styleUrl: './inicio.component.css',
   templateUrl: './inicio.component.html',
