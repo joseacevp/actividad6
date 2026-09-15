@@ -6,4 +6,4 @@ import { Component } from '@angular/core';
   styleUrl: './barra-navegacion.component.css',
   templateUrl: './barra-navegacion.component.html',
 })
-export class BarraNavegacionComponent {}
+export class BarraNavegacionComponent { }

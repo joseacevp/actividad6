@@ -1,1 +1,47 @@
-<p>inicio works!</p>
+@if (mensajeError(); as error) {
+  <p class="container alert alert-danger">{{ error.error }}</p>
+}
+
+<main class="container py-2 pb-5">
+  <ul class="row g-4 list-unstyled">
+    @for (user of usersResponse() ?? []; track user.id) {
+      <li class="col-12 col-sm-6 col-lg-3">
+        <article class="card h-100 align-items-center p-2">
+          <img
+            class="user-image rounded-circle border border-5"
+            [src]="user.image"
+            [alt]="user.username"
+          />
+
+          <div class="card-body text-center w-100">
+            <h2 class="h6 mb-1">{{ user.first_name }} {{ user.last_name }}</h2>
+            <p class="small text-secondary text-truncate mb-0">{{ user.email }}</p>
+          </div>
+
+          <div class="card-actions d-flex justify-content-around border-top w-100 mt-auto pt-2">
+            <button class="btn btn-link text-secondary p-0" type="button" aria-label="Ver detalle">
+              <span aria-hidden="true">⌕</span>
+              <small>Ver detalle</small>
+            </button>
+            <button
+              class="btn btn-link text-secondary p-0"
+              type="button"
+              aria-label="Actualizar usuario"
+            >
+              <span aria-hidden="true">↻</span>
+              <small>Actualizar</small>
+            </button>
+            <button
+              class="btn btn-link text-secondary p-0"
+              type="button"
+              aria-label="Borrar usuario"
+            >
+              <span aria-hidden="true">▣</span>
+              <small>Borrar</small>
+            </button>
+          </div>
+        </article>
+      </li>
+    }
+  </ul>
+</main>

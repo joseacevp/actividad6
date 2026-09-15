@@ -1,0 +1,20 @@
+.user-image {
+    aspect-ratio: 1;
+    height: 112px;
+    object-fit: cover;
+    width: 112px;
+    border-color: #2457d6 !important;
+}
+
+.card-actions {
+    min-height: 42px;
+}
+
+.card-actions span {
+    font-size: 1.55rem;
+    line-height: 1;
+}
+
+.card-actions small {
+    font-size: 0.62rem;
+}
