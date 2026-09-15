@@ -38,4 +38,17 @@ export class ServiceUsersService {
             }
         });
     }
+    borrarUsuario(id: number): void {
+        this.httpCliente.delete(`${this.apiUrl}/${id}`).subscribe({
+            next: () => {
+                const updatedUsers = this.usersResponse().filter(user => user.id !== id);
+                this.usersResponse.set(updatedUsers);
+            },
+            error: (error) => {
+                this.mensajeError.set({
+                    error: error?.message || 'Error al borrar el usuario'
+                });
+            }
+        });
+    }
 }

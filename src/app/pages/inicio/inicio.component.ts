@@ -17,5 +17,9 @@ export class InicioComponent {
   ngOnInit() {
     this.usersService.getUsers();
   }
+
+  borrarUsuario(id: number): void {
+    this.usersService.borrarUsuario(id);
+  }
 }
 
