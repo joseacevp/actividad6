@@ -7,6 +7,7 @@ export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: InicioComponent },
     { path: 'formulario-usuario', component: FormularioUsuarioComponent },
+    { path: 'editar-usuario/:id', component: FormularioUsuarioComponent },
     { path: 'detalle-usuario/:id', component: DetalleUsuarioComponent },
     { path: '**', redirectTo: 'home' }
 ];
