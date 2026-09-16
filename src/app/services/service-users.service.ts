@@ -69,6 +69,52 @@ export class ServiceUsersService {
 
     selectedUser = signal<IUser | null>(null);
 
+    crearUsuario(user: Omit<IUser, 'id'>): void {
+        const payload = {
+            name: `${user.first_name} ${user.last_name}`,
+            username: user.username,
+            email: user.email
+        };
+
+        this.httpCliente.post<any>(this.apiUrl, payload).subscribe({
+            next: (response) => {
+                const newUser: IUser = {
+                    ...user,
+                    id: response.id,
+                };
+                this.usersResponse.update(users => [...users, newUser]);
+            },
+            error: (error) => {
+                this.mensajeError.set({
+                    error: error?.message || 'Error al crear el usuario'
+                });
+            }
+        });
+    }
+
+    actualizarUsuario(id: string, user: Omit<IUser, 'id'>): void {
+        const payload = {
+            name: `${user.first_name} ${user.last_name}`,
+            username: user.username,
+            email: user.email
+        };
+
+        this.httpCliente.put<any>(`${this.apiUrl}/${id}`, payload).subscribe({
+            next: () => {
+                this.usersResponse.update(users => users.map(currentUser =>
+                    currentUser.id === Number(id)
+                        ? { ...user, id: Number(id) }
+                        : currentUser
+                ));
+            },
+            error: (error) => {
+                this.mensajeError.set({
+                    error: error?.message || 'Error al actualizar el usuario'
+                });
+            }
+        });
+    }
+
     borrarUsuario(id: number): void {
         this.httpCliente.delete(`${this.apiUrl}/${id}`).subscribe({
             next: () => {

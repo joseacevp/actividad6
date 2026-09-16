@@ -1,39 +1,43 @@
-<main class="user-detail container py-4">
-  <article class="user-detail__card">
-    @if (usuario(); as user) {
-      <div class="user-detail__image-wrapper">
-        <img
-          class="user-detail__image"
-          [src]="user.image"
-          [alt]="'Fotografía de ' + user.first_name + ' ' + user.last_name"
-        />
-      </div>
-
-      <div class="user-detail__content">
-        <h1>{{ user.first_name }}</h1>
-        <h2>{{ user.last_name }}</h2>
-
-        <dl class="user-detail__data">
-          <div>
-            <dt>Nombre Usuario:</dt>
-            <dd>{{ user.username }}</dd>
+<main class="container py-4">
+  <div class="row justify-content-center">
+    <article class="col-12 col-xl-10 card border-0 shadow-sm p-0">
+      @if (usuario(); as user) {
+        <div class="row align-items-center g-0">
+          <div class="col-12 col-md-5 p-4 p-md-5">
+            <div class="d-flex justify-content-center">
+              <img
+                class="img-fluid rounded-circle w-100"
+                [src]="user.image"
+                [alt]="'Fotografía de ' + user.first_name + ' ' + user.last_name"
+              />
+            </div>
           </div>
-          <div>
-            <dt>ID:</dt>
-            <dd>{{ user.id }}</dd>
-          </div>
-          <div>
-            <dt>Email:</dt>
-            <dd>{{ user.email }}</dd>
-          </div>
-        </dl>
 
-        <div class="user-detail__actions" aria-label="Acciones del usuario">
-          <button type="button">Eliminar</button>
-          <a href="/formulario-usuario">Actualizar</a>
-          <a href="/home">Volver al listado</a>
+          <div class="col-12 col-md-7 p-4 p-md-5 border-start border-dark">
+            <h1 class="h3 fw-normal text-secondary mb-3">{{ user.first_name }}</h1>
+            <h2 class="h3 fw-normal text-secondary mb-4">{{ user.last_name }}</h2>
+
+            <dl class="row text-secondary mb-4">
+              <dt class="col-sm-5 mb-2">Nombre Usuario:</dt>
+              <dd class="col-sm-7 mb-2">{{ user.username }}</dd>
+
+              <dt class="col-sm-5 mb-2">ID:</dt>
+              <dd class="col-sm-7 mb-2">{{ user.id }}</dd>
+
+              <dt class="col-sm-5 mb-2">Email:</dt>
+              <dd class="col-sm-7 mb-0 text-break">{{ user.email }}</dd>
+            </dl>
+
+            <div class="d-grid gap-2 d-sm-flex" aria-label="Acciones del usuario">
+              <button class="btn btn-outline-secondary" type="button">Eliminar</button>
+              <a class="btn btn-outline-secondary" href="/formulario-usuario">Actualizar</a>
+              <a class="btn btn-outline-secondary" href="/home">Volver al listado</a>
+            </div>
+          </div>
         </div>
-      </div>
-    }
-  </article>
+      } @else {
+        <p class="text-center text-secondary p-5 mb-0">Cargando usuario...</p>
+      }
+    </article>
+  </div>
 </main>
